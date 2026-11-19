@@ -17,10 +17,14 @@ int main()
     for (int i = 0; i < 20; i++)
     {
         int index = data[i] % m;
+
+        while (hashTable[index] != -1)
+            index = (index + 1) % m;
+
         hashTable[index] = data[i];
     }
 
-    cout << "Basic Hash Table:\n";
+    cout << "Hash Table using Linear Probing:\n";
 
     for (int i = 0; i < m; i++)
         cout << i << " : " << hashTable[i] << endl;
